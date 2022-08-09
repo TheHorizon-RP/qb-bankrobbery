@@ -473,3 +473,41 @@ QBCore.Functions.CreateUseableItem("laptop_green", function(source)
     if not Player or not Player.Functions.GetItemByName('laptop_green') then return end
     TriggerClientEvent("electronickit:UseGreenLaptop", source)
 end)
+
+-- Access Cards
+
+QBCore.Functions.CreateUseableItem("green_card", function(source)
+    local Player = QBCore.Functions.GetPlayer(source)
+	if not Player or not Player.Functions.GetItemByName('green_card') then return end
+    TriggerClientEvent("qb-bankrobbery:UseGreenKeycard", source)
+end)
+
+QBCore.Functions.CreateUseableItem("blue_card", function(source)
+    local Player = QBCore.Functions.GetPlayer(source)
+	if not Player or not Player.Functions.GetItemByName('blue_card') then return end
+    TriggerClientEvent("qb-bankrobbery:UseBlueKeycard", source)
+end)
+
+QBCore.Functions.CreateUseableItem("red_card", function(source)
+    local Player = QBCore.Functions.GetPlayer(source)
+	if not Player or not Player.Functions.GetItemByName('red_card') then return end
+    TriggerClientEvent("qb-bankrobbery:UseRedKeycard", source)
+end)
+
+QBCore.Functions.CreateUseableItem("purple_card", function(source)
+    local Player = QBCore.Functions.GetPlayer(source)
+	if not Player or not Player.Functions.GetItemByName('purple_card') then return end
+    TriggerClientEvent("qb-bankrobbery:UsePurpleKeycard", source)
+end)
+
+QBCore.Functions.CreateUseableItem("gold_card", function(source)
+    local Player = QBCore.Functions.GetPlayer(source)
+	if not Player or not Player.Functions.GetItemByName('gold_card') then return end
+    TriggerClientEvent("qb-bankrobbery:UseGoldKeycard", source)
+end)
+
+QBCore.Functions.CreateUseableItem("onyx_card", function(source)
+    local Player = QBCore.Functions.GetPlayer(source)
+	if not Player or not Player.Functions.GetItemByName('onyx_card') then return end
+    TriggerClientEvent("qb-bankrobbery:UseBlackKeycard", source)
+end)
