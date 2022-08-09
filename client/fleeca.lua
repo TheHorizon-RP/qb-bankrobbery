@@ -242,7 +242,7 @@ end
 
 -- Events
 
-RegisterNetEvent('electronickit:UseElectronickit', function()
+RegisterNetEvent('electronickit:UseGreenLaptop', function()
     local ped = PlayerPedId()
     local pos = GetEntityCoords(ped)
     Config.OnEvidence(pos, 85)
@@ -251,11 +251,11 @@ RegisterNetEvent('electronickit:UseElectronickit', function()
         if not isBusy then
             if CurrentCops >= Config.MinimumFleecaPolice then
                 if not Config.SmallBanks[closestBank]["isOpened"] then
-                    local hasItem = Config.HasItem({"trojan_usb", "electronickit"})
+                    local hasItem = Config.HasItem({"laptop_green"})
                     if hasItem then
                         Config.ShowRequiredItems({
-                            [1] = {name = QBCore.Shared.Items["electronickit"]["name"], image = QBCore.Shared.Items["electronickit"]["image"]},
-                            [2] = {name = QBCore.Shared.Items["trojan_usb"]["name"], image = QBCore.Shared.Items["trojan_usb"]["image"]}
+                            [1] = {name = QBCore.Shared.Items["laptop_green"]["name"], image = QBCore.Shared.Items["laptop_green"]["image"]},
+                           -- [2] = {name = QBCore.Shared.Items["trojan_usb"]["name"], image = QBCore.Shared.Items["trojan_usb"]["image"]}
                         }, false)
                         loadAnimDict("anim@gangops@facility@servers@")
                         TaskPlayAnim(ped, 'anim@gangops@facility@servers@', 'hotwire', 3.0, 3.0, -1, 1, 0, false, false, false)
@@ -266,9 +266,16 @@ RegisterNetEvent('electronickit:UseElectronickit', function()
                             disableCombat = true,
                         }, {}, {}, {}, function() -- Done
                             StopAnimTask(ped, "anim@gangops@facility@servers@", "hotwire", 1.0)
-                            TriggerServerEvent('qb-bankrobbery:server:removeElectronicKit')
-                            TriggerEvent("mhacking:show")
-                            TriggerEvent("mhacking:start", math.random(6, 7), math.random(12, 15), OnHackDone)
+                            TriggerServerEvent('qb-bankrobbery:server:removelaptop_green')
+                           -- TriggerEvent("mhacking:show")
+                           -- TriggerEvent("mhacking:start", math.random(6, 7), math.random(12, 15), OnHackDone)
+                           exports['ps-ui']:VarHack(function(success)
+                            if success then
+                                Config.OnHackDone(success, closestBank)                            
+                            else
+                                print("fail")
+                            end
+                         end, 1, 5) -- Number of Blocks, Time (seconds)
                             if copsCalled or not Config.SmallBanks[closestBank]["alarm"] then return end
                             TriggerServerEvent("qb-bankrobbery:server:callCops", "small", closestBank, pos)
                             copsCalled = true
@@ -444,13 +451,13 @@ CreateThread(function()
             inElectronickitZone = inside
             if inside and not Config.SmallBanks[i]["isOpened"] then
                 Config.ShowRequiredItems({
-                    [1] = {name = QBCore.Shared.Items["electronickit"]["name"], image = QBCore.Shared.Items["electronickit"]["image"]},
-                    [2] = {name = QBCore.Shared.Items["trojan_usb"]["name"], image = QBCore.Shared.Items["trojan_usb"]["image"]}
+                    [1] = {name = QBCore.Shared.Items["laptop_green"]["name"], image = QBCore.Shared.Items["laptop_green"]["image"]},
+                 --   [2] = {name = QBCore.Shared.Items["trojan_usb"]["name"], image = QBCore.Shared.Items["trojan_usb"]["image"]}
                 }, true)
             else
                 Config.ShowRequiredItems({
-                    [1] = {name = QBCore.Shared.Items["electronickit"]["name"], image = QBCore.Shared.Items["electronickit"]["image"]},
-                    [2] = {name = QBCore.Shared.Items["trojan_usb"]["name"], image = QBCore.Shared.Items["trojan_usb"]["image"]}
+                    [1] = {name = QBCore.Shared.Items["laptop_green"]["name"], image = QBCore.Shared.Items["laptop_green"]["image"]},
+                  --  [2] = {name = QBCore.Shared.Items["trojan_usb"]["name"], image = QBCore.Shared.Items["trojan_usb"]["image"]}
                 }, false)
             end
         end)

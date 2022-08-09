@@ -443,3 +443,33 @@ QBCore.Functions.CreateUseableItem("electronickit", function(source)
     if not Player or not Player.Functions.GetItemByName('electronickit') then return end
     TriggerClientEvent("electronickit:UseElectronickit", source)
 end)
+
+QBCore.Functions.CreateUseableItem("laptop_black", function(source)
+    local Player = QBCore.Functions.GetPlayer(source)
+    if not Player or not Player.Functions.GetItemByName('laptop_black') then return end
+    TriggerClientEvent("electronickit:UseBlackLaptop", source)
+end)
+
+QBCore.Functions.CreateUseableItem("laptop_gold", function(source)
+    local Player = QBCore.Functions.GetPlayer(source)
+    if not Player or not Player.Functions.GetItemByName('laptop_gold') then return end
+    TriggerClientEvent("electronickit:UseGoldLaptop", source)
+end)
+
+QBCore.Functions.CreateUseableItem("laptop_red", function(source)
+    local Player = QBCore.Functions.GetPlayer(source)
+    if not Player or not Player.Functions.GetItemByName('laptop_red') then return end
+    TriggerClientEvent("electronickit:UseRedLaptop", source)
+end)
+
+QBCore.Functions.CreateUseableItem("laptop_blue", function(source)
+    local Player = QBCore.Functions.GetPlayer(source)
+    if not Player or not Player.Functions.GetItemByName('laptop_blue') then return end
+    TriggerClientEvent("electronickit:UseBlueLaptop", source)
+end)
+
+QBCore.Functions.CreateUseableItem("laptop_green", function(source)
+    local Player = QBCore.Functions.GetPlayer(source)
+    if not Player or not Player.Functions.GetItemByName('laptop_green') then return end
+    TriggerClientEvent("electronickit:UseGreenLaptop", source)
+end)
