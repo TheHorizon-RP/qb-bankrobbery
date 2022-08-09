@@ -261,12 +261,12 @@ RegisterNetEvent('electronickit:UseGreenLaptop', function()
                         TaskPlayAnim(ped, 'anim@gangops@facility@servers@', 'hotwire', 3.0, 3.0, -1, 1, 0, false, false, false)
                         QBCore.Functions.Progressbar("hack_gate", Lang:t("general.connecting_hacking_device"), math.random(5000, 10000), false, true, {
                             disableMovement = true,
-                            disableCarMovement = true,
+                            disableCarMovement = true, 
                             disableMouse = false,
                             disableCombat = true,
                         }, {}, {}, {}, function() -- Done
                             StopAnimTask(ped, "anim@gangops@facility@servers@", "hotwire", 1.0)
-                            TriggerServerEvent('qb-bankrobbery:server:removelaptop_green')
+                            TriggerServerEvent('qb-bankrobbery:server:removeLaptop 1*')
                            -- TriggerEvent("mhacking:show")
                            -- TriggerEvent("mhacking:start", math.random(6, 7), math.random(12, 15), OnHackDone)
                            exports['ps-ui']:VarHack(function(success)
